@@ -38,3 +38,47 @@ void getJudgeData ()
         }
     }
 }
+
+int findHighest ()
+{
+    int nHighestValue = 0;
+    for(int i = 0; i < nArrayLength; i++)
+    {
+        if(nHighestValue < nJudgeScores [i])
+        {
+            nHighestValue = nJudgeScores [i];
+        }
+    }
+    cout << "The highest value is " << nHighestValue << endl;
+    return nHighestValue;
+}
+
+int findLowest ()
+{
+    int nLowestValue = nJudgeScores [0];
+    for(int x = 0; x < nArrayLength; x++)
+    {
+        if(nLowestValue > nJudgeScores [x])
+        {
+            nLowestValue = nJudgeScores [x];
+        }
+    }
+    cout << "The lowest value is " << nLowestValue << endl;
+    return nLowestValue;
+}
+
+void calcScore ()
+{
+    nLow = findLowest ();
+    nHigh = findHighest ();
+    nFinalScore = (nHigh + nLow) / 2;
+    cout << "The contestant's final score is " << nFinalScore << endl;
+    return;
+}
+
+int main ()
+{
+    getJudgeData ();
+    calcScore ();
+    return 0;
+}
